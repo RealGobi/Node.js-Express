@@ -1,20 +1,23 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import config from './config/config.js';
+import cors from 'cors';
+
+import ItemRoute from './routes/Item-Routes.js'
 
 const app = express();
-dotenv.config();
-const { PORT} = process.env;
-
+app.use(express.json());
+app.use(cors());
 
 app.use(morgan('common'));
 app.use(helmet());
 
-app.get('/data', (req, res) => {
-  res.status(200).send('From my express server!');
-});
+// app.get('/data', (req, res) => {
+//   res.status(200).send('From my express server!');
+// });
 
-app.listen(PORT, ()=> {
-  console.log(`✔️ Server running on Port: ${PORT}`);
-});
+ItemRoute.routes(app);
+
+config.connectToPort(app);
+config.connectToDb();
