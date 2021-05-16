@@ -40,7 +40,7 @@ const getItemById = async (req, res) => {
 
 const deleteItemById = async (req, res) => {
 	try {
-		const databaseRes = await ItemModel.findByIdAndDelete(req.params.userId);
+		const databaseRes = await ItemModel.findByIdAndDelete(req.params.itemId);
 		res.status(statusCode.OK).send({
 			msg: `Item deleted: ${databaseRes.itemName}`
 		});
