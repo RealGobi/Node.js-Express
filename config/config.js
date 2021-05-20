@@ -17,7 +17,7 @@ const connectToPort = async(app) => {
 
 const connectToDb = async () => {
 	try {
-		await mongoose.connect(DEV_DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+		await mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 		console.log('✔️ Connected to database');
 	} catch (error) {
 		console.error(error.message + '❌');
