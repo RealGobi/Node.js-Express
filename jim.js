@@ -13,7 +13,7 @@ app.use(cors());
 app.use(morgan('common'));
 app.use(helmet());
 
- app.get('/data', (req, res) => {
+ app.get('/', (req, res) => {
    res.status(200).send('From my express server!');
  });
 

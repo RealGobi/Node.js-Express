@@ -24,7 +24,7 @@ app.use(_express["default"].json());
 app.use((0, _cors["default"])());
 app.use((0, _morgan["default"])('common'));
 app.use((0, _helmet["default"])());
-app.get('/data', function (req, res) {
+app.get('/', function (req, res) {
   res.status(200).send('From my express server!');
 });
 
