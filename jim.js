@@ -13,9 +13,9 @@ app.use(cors());
 app.use(morgan('common'));
 app.use(helmet());
 
-// app.get('/data', (req, res) => {
-//   res.status(200).send('From my express server!');
-// });
+ app.get('/data', (req, res) => {
+   res.status(200).send('From my express server!');
+ });
 
 ItemRoute.routes(app);
 
