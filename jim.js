@@ -21,3 +21,5 @@ ItemRoute.routes(app);
 
 config.connectToPort(app);
 config.connectToDb();
+
+export default app;

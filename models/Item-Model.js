@@ -23,11 +23,10 @@ const itemSchema = Schema({
 		allowNull: false,
 		required: true
 	},
-	itemDescription: {
+	itemDescription: { 
 		type: String,
 	}
-
-});
+}, { timestamps: true });
 
 const ItemModel = mongoose.model('item', itemSchema);
 

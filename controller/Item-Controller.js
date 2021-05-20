@@ -4,6 +4,7 @@ import statusCode from '../config/statusCode.js';
 
 
 const createItem = async (req, res) => {
+	console.log(req.body);
 	const item = new ItemModel({
 		itemName: req.body.itemName,
 		itemCategory: req.body.itemCategory,
@@ -15,6 +16,7 @@ const createItem = async (req, res) => {
 		const dbResponse = await item.save();
 		res.status(statusCode.CREATED).send(dbResponse);
 	} catch (error) {
+		console.log('hiiiiiitttt');
 		res.status(statusCode.INTERNAL_SERVER_ERROR).send({msg: error.message});
 	}
 };
