@@ -15,7 +15,8 @@ _dotenv["default"].config();
 
 var _process$env = process.env,
     PORT = _process$env.PORT,
-    DEV_DB_URL = _process$env.DEV_DB_URL;
+    DEV_DB_URL = _process$env.DEV_DB_URL,
+    PROD_DB_URL = _process$env.PROD_DB_URL;
 
 var connectToPort = function connectToPort(app) {
   return regeneratorRuntime.async(function connectToPort$(_context) {
@@ -52,7 +53,7 @@ var connectToDb = function connectToDb() {
         case 0:
           _context2.prev = 0;
           _context2.next = 3;
-          return regeneratorRuntime.awrap(_mongoose["default"].connect('mongodb://localhost/test', {
+          return regeneratorRuntime.awrap(_mongoose["default"].connect(PROD_DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,

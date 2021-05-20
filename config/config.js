@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 
 dotenv.config();
-const { PORT, DEV_DB_URL } = process.env;
+const { PORT, DEV_DB_URL, PROD_DB_URL } = process.env;
 
 const connectToPort = async(app) => {
 	try {
@@ -17,7 +17,7 @@ const connectToPort = async(app) => {
 
 const connectToDb = async () => {
 	try {
-		await mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+		await mongoose.connect(PROD_DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 		console.log('✔️ Connected to database');
 	} catch (error) {
 		console.error(error.message + '❌');
